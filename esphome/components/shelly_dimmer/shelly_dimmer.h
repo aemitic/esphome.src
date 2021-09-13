@@ -18,7 +18,6 @@ public:
   light::LightTraits get_traits() override {
     auto traits = light::LightTraits();
     traits.set_supported_color_modes({light::ColorMode::BRIGHTNESS});
-    traits.set_supports_brightness(true);
     return traits;
   }
 
