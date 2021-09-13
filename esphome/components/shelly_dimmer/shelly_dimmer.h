@@ -24,11 +24,7 @@ public:
   }
 
   void setup_state(light::LightState *state) override { this->state_ = state; }
-  void write_state(light::LightState *state) override {
-    float bright;
-    state->current_values_as_brightness(&bright);
-    this->output_->set_level(bright);
-  }
+  void write_state(light::LightState *state) override;
 
 
 
