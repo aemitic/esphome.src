@@ -22,7 +22,13 @@ public:
   }
 
   void setup_state(light::LightState *state) override { this->state_ = state; }
-  void write_state(light::LightState *state) override;
+  void write_state(light::LightState *state) override {
+    float bright;
+    state->current_values_as_brightness(&bright);
+    this->output_->set_level(bright);
+  }
+
+
 
   void set_nrst_pin(GPIOPin *nrst_pin) { this->pin_nrst_ = nrst_pin; }
   void set_boot0_pin(GPIOPin *boot0_pin) { this->pin_boot0_ = boot0_pin; }
@@ -105,6 +111,10 @@ protected:
 
   /// Reset STM32 to boot into DFU mode to enable firmware upgrades.
   void reset_dfu_boot_();
+};
+
+protected:
+  output::FloatOutput *output_;
 };
 
 }
