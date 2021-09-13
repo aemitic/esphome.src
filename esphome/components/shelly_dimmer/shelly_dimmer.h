@@ -1,5 +1,3 @@
-#pragma once
-
 #include <HardwareSerial.h>
 
 #include "esphome/core/component.h"
