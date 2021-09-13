@@ -3,6 +3,7 @@
 #include "esphome/core/component.h"
 #include "esphome/core/esphal.h"
 #include "esphome/core/log.h"
+#include "esphome/components/output/float_output.h"
 #include "esphome/components/light/light_output.h"
 #include "esphome/components/sensor/sensor.h"
 
@@ -11,6 +12,7 @@ namespace shelly {
 
 class ShellyDimmer : public Component, public light::LightOutput {
 public:
+  void set_output(output::FloatOutput *output) { output_ = output; }
   float get_setup_priority() const override { return setup_priority::LATE; }
 
   void setup() override;
