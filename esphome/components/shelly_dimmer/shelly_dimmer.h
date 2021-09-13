@@ -111,11 +111,12 @@ protected:
 
   /// Reset STM32 to boot into DFU mode to enable firmware upgrades.
   void reset_dfu_boot_();
-};
 
-protected:
   output::FloatOutput *output_;
+
 };
 
+
+  
 }
 }
